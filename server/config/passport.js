@@ -10,7 +10,7 @@ passport.use('google-signup',
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://google-auth-i9ow.onrender.com/auth/google/callback/signup"
+      callbackURL: "https://google-auth-beph.onrender.com/auth/google/callback/signup"
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
@@ -45,7 +45,7 @@ passport.use('google-login',
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://google-auth-i9ow.onrender.com/auth/google/callback/login"
+      callbackURL: "https://google-auth-beph.onrender.com/auth/google/callback/login"
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
