@@ -41,6 +41,6 @@ app.set("views", path.resolve("./views"));
 
 
 const{connectMongoDB}= require('./connect')
-connectMongoDB('mongodb://127.0.0.1:27017/googleauth')
+connectMongoDB('mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/googleauth')
 
 app.listen(3000);
