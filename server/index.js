@@ -3,6 +3,7 @@ const app= express();
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const {restrictToLoggedInUserOnly} = require("./middlewares/auth");
 
 const passport = require("./config/passport");
@@ -19,11 +20,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser());
 
+const mongoURI = 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/googleauth';
+
+
 app.use(
     session({
       secret: "Aaditya@3737",
       resave: false,
       saveUninitialized: false,
+      store: MongoStore.create({ mongoUrl: mongoURI }), // Set up MongoStore
     })
   );
 
@@ -41,6 +46,6 @@ app.set("views", path.resolve("./views"));
 
 
 const{connectMongoDB}= require('./connect')
-connectMongoDB('mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/googleauth')
+connectMongoDB(mongoURI);
 
 app.listen(3000);
